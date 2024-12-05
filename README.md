@@ -1,0 +1,1 @@
+API to access openAi API to use chatGPT to aswer questions about acoustic
