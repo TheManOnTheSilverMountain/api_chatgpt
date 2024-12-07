@@ -27,6 +27,13 @@ CORS(
     supports_credentials=True,
 )
 
+CORS(
+    app,
+    resources={r"/chatgpt": {"origins": "*"}},
+    allow_headers=["Content-Type", "Authorization"],
+    supports_credentials=True,
+)
+
 
 # Configuração do JWT
 app.config["JWT_SECRET_KEY"] = os.getenv(
