@@ -13,14 +13,20 @@ import logging
 
 from openai import OpenAI
 
-# Carregando as variáveis de ambiente do arquivo .env
+# Carregando as variáveis de ambiente do arquivo .env https://acoustic-chat.onrender.com
 load_dotenv()
 
 # Inicializar o Flask
 app = Flask(__name__)
 
-CORS(app, resources={r"/*": {"origins": "https://acoustic-chat.onrender.com"}})
-CORS(app, allow_headers=["Content-Type", "Authorization"])
+CORS(
+    app,
+    resources={r"/*": {"origins": "https://acoustic-chat.onrender.com"}},
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "DELETE"],
+    supports_credentials=True,
+)
+
 
 # Configuração do JWT
 app.config["JWT_SECRET_KEY"] = os.getenv(
