@@ -20,6 +20,7 @@ load_dotenv()
 app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": "https://acoustic-chat.onrender.com"}})
+CORS(app, allow_headers=["Content-Type", "Authorization"])
 
 # Configuração do JWT
 app.config["JWT_SECRET_KEY"] = os.getenv(
