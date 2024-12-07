@@ -8,6 +8,7 @@ from flask_jwt_extended import (
     create_access_token,
     get_jwt_identity,
 )
+from flask_cors import CORS
 import logging
 
 from openai import OpenAI
@@ -17,6 +18,8 @@ load_dotenv()
 
 # Inicializar o Flask
 app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": "https://acoustic-chat.onrender.com"}})
 
 # Configuração do JWT
 app.config["JWT_SECRET_KEY"] = os.getenv(
